@@ -15,15 +15,15 @@ def main():
     a = int(argv[1])
     b = int(argv[3])
     result = 0
-    
+
     if op == "+":
-        result = a + b
+        result = add(a, b)
     elif op == "-":
-        result = a - b
+        result = sub(a, b)
     elif op == "*":
-        result = a * b
+        result = mul(a, b)
     elif op == "/":
-        result = a / b
+        result = div(a, b)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
