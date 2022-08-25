@@ -8,6 +8,6 @@ if __name__ == "__main__":
     if argc == 2:
         msg = "argument"
 
-    print("{} {}.".format(argc - 1, msg))
+    print("{:d} {}.".format(argc - 1, msg))
     for i in range(1, argc):
-        print("{}: {}".format(i, args[i]))
+        print("{:d}: {}".format(i, args[i]))
