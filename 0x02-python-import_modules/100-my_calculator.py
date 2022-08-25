@@ -7,7 +7,7 @@ def main():
     argv = sys.argv
     argc = len(argv)
 
-    if argc < 4:
+    if argc != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
@@ -15,6 +15,7 @@ def main():
     a = int(argv[1])
     b = int(argv[3])
     result = 0
+    
     if op == "+":
         result = a + b
     elif op == "-":
