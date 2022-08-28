@@ -2,10 +2,11 @@
 
 
 def add_tuple(tuple_a=(), tuple_b=()):
-    if (tuple_a is None) or (tuple_b is None):
-        return ()
+    if (tuple_a is None):
+        tuple_a = ()
+    if (tuple_b is None):
+        tuple_b = ()
     sum = [0, 0]
-    i = 0
     for i in range(2):
         try:
             sum[i] += tuple_a[i]
