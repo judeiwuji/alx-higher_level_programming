@@ -23,7 +23,7 @@ void print_python_list_info(PyObject *p)
 	while (i < size)
 	{
 		ob = PyList_GET_ITEM(p, i++);
-		if ((ob != NULL))
+		if (ob != NULL)
 			printf("Element %d: %s\n", j++, ob->ob_type->tp_name);
 	}
 }
