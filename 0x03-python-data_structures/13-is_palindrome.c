@@ -10,16 +10,16 @@
  */
 int is_palindrome_r(listint_t **left, listint_t *right)
 {
-    int palindrome = 0;
+	int palindrome = 0;
 
-    if (right == NULL)
-        return 1;
-    palindrome = is_palindrome_r(left, right->next);
-    if (palindrome == 0)
-        return 0;
-    palindrome = (*left)->n == right->n;
-    *left = (*left)->next;
-    return palindrome;
+	if (right == NULL)
+		return (1);
+	palindrome = is_palindrome_r(left, right->next);
+	if (palindrome == 0)
+		return (0);
+	palindrome = (*left)->n == right->n;
+	*left = (*left)->next;
+	return (palindrome);
 }
 
 /**
@@ -30,10 +30,10 @@ int is_palindrome_r(listint_t **left, listint_t *right)
  */
 int is_palindrome(listint_t **head)
 {
-    if (head == NULL)
-        return 0;
-    if (((*head) == NULL) || ((*head)->next == NULL))
-        return 1;
+	if (head == NULL)
+		return (0);
+	if (((*head) == NULL) || ((*head)->next == NULL))
+		return (1);
 
-    return is_palindrome_r(head, *head);
+	return (is_palindrome_r(head, *head));
 }
