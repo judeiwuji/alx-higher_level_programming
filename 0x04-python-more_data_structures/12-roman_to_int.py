@@ -8,14 +8,14 @@ def roman_to_int(roman_string):
 
     n = 0
     skip = False
-    str_len = len(roman_string)
-    if roman_string is not None:
+    if (roman_string is not None) and isinstance(roman_string, str):
+        str_len = len(roman_string)
         for i in range(str_len):
             base = 0
-            str = roman_string[i]
+            key = roman_string[i]
             if (i + 1) < str_len:
-                str += roman_string[i+1]
-                base = units.get(str)
+                key += roman_string[i+1]
+                base = units.get(key)
 
             if not skip:
                 if base:
@@ -23,8 +23,8 @@ def roman_to_int(roman_string):
                     skip = True
                     continue
                 else:
-                    str = roman_string[i]
-                    base = units.get(str)
+                    key = roman_string[i]
+                    base = units.get(key)
                     n += base
             skip = False
     return n
