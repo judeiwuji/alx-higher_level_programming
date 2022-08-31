@@ -10,6 +10,9 @@ def add_tuple(tuple_a=(), tuple_b=()):
     for i in range(2):
         try:
             sum[i] += tuple_a[i]
+        except Exception as e:
+            sum[i] += 0
+        try:
             sum[i] += tuple_b[i]
         except Exception as e:
             sum[i] += 0
