@@ -2,5 +2,6 @@
 
 
 class Square:
-    """A Square class."""
+    """A Square class will be used to create a square shape."""
+
     pass
