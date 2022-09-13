@@ -38,7 +38,7 @@ class Square:
         """Prints this square"""
         if self.size > 0:
             for m in range(0, self.position[1]):
-                    print()
+                print()
             for i in range(0, self.size):
                 for k in range(0, self.position[0]):
                     print(end=" ")
