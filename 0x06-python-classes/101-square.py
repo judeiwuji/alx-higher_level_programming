@@ -56,7 +56,7 @@ class Square:
 
     def __str__(self):
         """Returns square formated as string"""
-        square_str = "\n"
+        square_str = ""
         if self.size > 0:
             square_str = ""
             for m in range(0, self.position[1]):
