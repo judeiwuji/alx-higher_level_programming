@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 import math
 
+
 """A MagicClass translated from a bytecode."""
+
+
 class MagicClass:
     """MagicClass: translated from a bytecode"""
     def __init__(self, radius):
