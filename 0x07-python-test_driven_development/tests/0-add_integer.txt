@@ -1,0 +1,77 @@
+====================================
+0-add_integer.py documentation
+====================================
+
+This module has the function ``add_integer()``.
+
+Number
+======
+
+``add_integer()`` returns the integer addition of 2 numbers
+
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
+
+It also works when only the first value is given
+
+::
+
+	>>> add_integer(2)
+	100
+
+It also works for floating-point values.
+
+::
+
+	>>> add_integer(2.0, 3.0)
+	5
+
+Non-Numbers
+===========
+
+This function can only work with integer and floats
+calling ``add_integer()`` with a value other than
+integer or float it will raise a TypeError
+
+::
+
+	>>> add_integer('2', 3)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+It will also fail for b
+
+::
+
+	>>> add_integer(2, '3')
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+It will also fail when None is given
+
+::
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+	>>> add_integer(2, None)
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+
+It will also fail when No value is given
+
+::
+
+	>>> add_integer()
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
