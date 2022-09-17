@@ -1,0 +1,88 @@
+=====================================
+2-matrix_divided.py documentation
+=====================================
+
+This module has the function ``matrix_divided()``
+
+Number Matrix
+=============
+
+``matrix_divided()`` divides all the element of a matrix using
+a given divisor
+
+::
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+	>>> matrix = [[1, 2, 3],[4, 5, 6]]
+	>>> matrix_divided(matrix, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+It should also work when the divisor is negative
+
+::
+
+	>>> matrix_divided(matrix, 3.0)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Fail safes
+==========
+
+``matrix_divided()`` will fail for the following cases
+
+It should fail when the divisor is not an integer or float
+
+::
+
+	>>> matrix_divided(matrix, '3')
+	Traceback (most recent call last):
+		...
+	TypeError: div must be a number
+
+It should fail when the divisor is zero
+
+::
+
+	>>> matrix_divided(matrix, 0)
+	Traceback (most recent call last):
+		...
+	ZeroDivisionError: division by zero
+
+Matrix fail safe
+================
+
+``matrix_divided()`` only works a matrix and all the rows must
+have the same size
+
+::
+
+	>>> matrix_divided(None, 3)
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+It should fail if any of the rows in the matrix is not a list
+
+::
+
+	>>> matrix_divided([None,[1, '2', 3]], 3)
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+It should fail if any item in the row is not integer or float
+
+::
+
+	>>> matrix_divided([[1, 2, 3],[1, '2', 3]], 3)
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+It should fail when the matrix rows have different sizes
+
+::
+
+	>>> matrix_divided([[1, 2, 3],[4, 5]], 3)
+	Traceback (most recent call last):
+		...
+	TypeError: Each row of the matrix must have the same size
