@@ -1,0 +1,44 @@
+===============================
+3-say_my_name.py documentation
+===============================
+
+This module has the function ``say_my_name()``
+
+Test cases
+==========
+
+It should print a text on the stdout
+
+::
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("jude", "iwuji")
+	My name is jude iwuji
+
+it should also print when last_name is not given
+
+::
+
+	>>> say_my_name("jude") #doctest: +ELLIPSIS
+	My name is jude 
+
+Fail safes
+==========
+
+It should fail when first_name is not string
+
+::
+
+	>>> say_my_name(1, "iwuji")
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+
+It should fail when last_name is not string
+
+::
+
+	>>> say_my_name("jude", 1)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
