@@ -5,7 +5,7 @@
 
 class Rectangle:
     """Use this class to create rectangles.
-    
+
     Example:
         >>> rect = Rectangle()
     """
