@@ -1,0 +1,129 @@
+================================
+100-lazy_matrix_mul.py documentatio
+================================
+
+This module contains ``lazy_matrix_mul()`` function.
+
+Test Cases:
+
+It should multiply two integer matrices
+
+::
+
+	>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+	>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]) #doctest: +NORMALIZE_WHITESPACE
+	array([[ 7, 10],
+           [15, 22]])
+
+It should multiply two float matrices
+
+::
+
+	>>> lazy_matrix_mul([[1.0, 2.0], [3.0, 4.0]], [[1.0, 2.0], [3.0, 4.0]]) #doctest: +NORMALIZE_WHITESPACE
+	array([[ 7., 10.],
+           [15., 22.]])
+
+Fail safes
+==========
+
+It should fail when m_a is not a list
+
+::
+
+	>>> lazy_matrix_mul(None, [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+		...
+	TypeError: Object arrays are not currently supported
+
+It should fail when m_b is not a list
+
+::
+
+	>>> lazy_matrix_mul([[1, 2], [3, 4]], None)
+	Traceback (most recent call last):
+		...
+	TypeError: Object arrays are not currently supported
+
+It should fail when m_a element is not a list
+
+::
+
+	>>> lazy_matrix_mul([None], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+		...
+	TypeError: Object arrays are not currently supported
+
+It should fail when m_b element is not a list
+
+::
+
+	>>> lazy_matrix_mul([[1, 2]], [None, [1, 2]])
+	Traceback (most recent call last):
+		...
+	TypeError: Object arrays are not currently supported
+
+
+It should fail when m_a rows are not the same size
+
+::
+
+	>>> lazy_matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+		...
+	TypeError: Object arrays are not currently supported
+
+It should fail when m_b rows are not the same size
+
+::
+
+	>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3]])
+	Traceback (most recent call last):
+		...
+	TypeError: Object arrays are not currently supported
+
+It should fail when m_a rows are not the same size with m_b
+
+::
+
+	>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2]])
+	Traceback (most recent call last):
+		...
+	ValueError: shapes (2,2) and (1,2) not aligned: 2 (dim 1) != 1 (dim 0)
+
+It should fail when m_a rows element is not integer or float
+
+::
+
+	>>> lazy_matrix_mul([['1', 2]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+		...
+	TypeError: invalid data type for einsum
+
+It should fail when m_a rows element is not integer or float
+
+::
+
+	>>> lazy_matrix_mul([[1, 2]], [[1, 2], ['3', 4]])
+	Traceback (most recent call last):
+		...
+	TypeError: invalid data type for einsum
+
+
+Empty list
+==========
+
+It should fail when m_a is empty
+
+::
+
+	>>> lazy_matrix_mul([], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+		...
+	ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+
+It should fail when m_b is empty
+
+::
+
+	>>> lazy_matrix_mul([[1]], [[]])
+	array([], shape=(1, 0), dtype=float64)
