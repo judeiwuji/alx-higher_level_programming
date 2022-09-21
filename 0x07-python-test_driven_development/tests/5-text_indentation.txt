@@ -68,3 +68,12 @@ It should fail when text is not string
 	Traceback (most recent call last):
 		...
 	TypeError: text must be a string
+
+It should fail when no arg is provided
+
+::
+
+	>>> text_indentation()
+	Traceback (most recent call last):
+		...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
