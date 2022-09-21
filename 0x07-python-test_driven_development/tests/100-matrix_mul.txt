@@ -127,3 +127,21 @@ It should fail when m_b is empty
 	Traceback (most recent call last):
 		...
 	ValueError: m_b can't be empty
+
+It should fail when an arg is missing
+
+::
+
+	>>> matrix_mul([[1]])
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+It should fail when args is missing
+
+::
+
+	>>> matrix_mul()
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'

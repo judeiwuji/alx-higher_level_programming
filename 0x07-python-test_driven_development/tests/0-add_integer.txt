@@ -75,3 +75,12 @@ It will also fail when No value is given
 	Traceback (most recent call last):
 		...
 	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+It should fail for float nan
+
+::
+
+	>>> add_integer(float("nan"), 1)
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer

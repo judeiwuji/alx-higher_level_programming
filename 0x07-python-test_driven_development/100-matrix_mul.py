@@ -17,7 +17,7 @@ def matrix_mul(m_a, m_b):
         if size is not None:
             if size != len(row_a):
                 raise TypeError("each row of m_a must be of the same size")
-            if len(row_a) != len(m_b):
+            if len(row_a) != len(m_b) and type(m_b[0]) is list:
                 raise ValueError("m_a and m_b can't be multiplied")
         size = len(row_a)
 
