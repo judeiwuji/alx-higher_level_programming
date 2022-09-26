@@ -49,6 +49,16 @@ It should fail when a str is validated
         ...
     TypeError: width must be an integer
 
+It should fail when 0 is validated
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width', 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: width must be greater than 0
+
 It should fail when a value less than or equal to zero is validated
 
 ::
