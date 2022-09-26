@@ -1,0 +1,60 @@
+=================================
+7-base_geometry.py documentation.
+=================================
+
+This module contains ``BaseGeometry`` class.
+
+Test cases:
+===========
+
+It should create a BaseGeometry object
+
+::
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> type(bg) is BaseGeometry
+    True
+
+Fail Safes
+==========
+
+It should fail when a non integer validated
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width', None)
+    Traceback (most recent call last):
+        ...
+    TypeError: width must be an integer
+
+It should fail when a value less than or equal to zero is validated
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width', -1)
+    Traceback (most recent call last):
+        ...
+    ValueError: width must be greater than 0
+
+It should fail when only 1 argument is given
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width')
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+It should fail when only no argument is given
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
