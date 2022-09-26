@@ -59,6 +59,36 @@ It should fail when a boolean is validated
         ...
     TypeError: width must be an integer
 
+It should fail when a list is validated
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width', [1, 2])
+    Traceback (most recent call last):
+        ...
+    TypeError: width must be an integer
+
+It should fail when a tuple is validated
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width', (1, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: width must be an integer
+
+It should fail when a dict is validated
+
+::
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator('width', {'width': 2})
+    Traceback (most recent call last):
+        ...
+    TypeError: width must be an integer
+
 It should fail when 0 is validated
 
 ::
