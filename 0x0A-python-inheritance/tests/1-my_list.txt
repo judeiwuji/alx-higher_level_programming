@@ -37,6 +37,18 @@ It should print sorted list of positive integers
     >>> my_list.print_sorted()
     [0, 1, 2]
 
+It should print sorted list of both positive and negative integers
+
+::
+
+    >>> my_list = MyList()
+    >>> my_list.append(2)
+    >>> my_list.append(1)
+    >>> my_list.append(-1)
+    >>> my_list.append(-2)
+    >>> my_list.print_sorted()
+    [-2, -1, 1, 2]
+
 
 It should print sorted list of negative integers
 
