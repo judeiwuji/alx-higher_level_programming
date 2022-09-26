@@ -6,6 +6,11 @@
 class MyList(list):
     """This class extends built-in list"""
 
+    def __init__(self, *args):
+        """Creates an instance of a list."""
+
+        super().__init__(args)
+
     def print_sorted(self):
         """prints sorted list"""
         print("[", end="")
