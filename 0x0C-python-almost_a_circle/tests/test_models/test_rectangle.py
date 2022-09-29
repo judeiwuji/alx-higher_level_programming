@@ -116,6 +116,61 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/6")
 
+    def test_update_id(self):
+        """It should update the id."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(20)
+        self.assertEqual(r.id, 20)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_width(self):
+        """It should update the width."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(10, 8)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 8)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_height(self):
+        """It should update the height."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(10, 4, 8)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 8)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_x(self):
+        """It should update the x."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(10, 4, 6, 7)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 7)
+        self.assertEqual(r.y, 1)
+
+    def test_update_y(self):
+        """It should update the y."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(10, 4, 6, 2, 6)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 6)
+
 
 if __name__ == "__main__":
     unittest.main()

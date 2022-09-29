@@ -111,7 +111,8 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
-        """prints the `Rectangle` to stdout."""
+        """Prints the `Rectangle` to stdout."""
+
         for i in range(self.y):
             print()
         for i in range(self.height):
@@ -124,5 +125,22 @@ class Rectangle(Base):
         print()
 
     def __str__(self):
+        """Returns `Rectangle` as string."""
+
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+
+    def update(self, *args):
+        """Updates the `Rectangle`.
+
+        Args:
+            args(tuple): A variadic argument
+        """
+
+        if args is not None:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+
+            for i, arg in enumerate(args):
+                if i > len(attributes):
+                    break;
+                setattr(self, attributes[i], arg)
