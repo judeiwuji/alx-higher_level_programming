@@ -110,5 +110,12 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(10, 5)
         self.assertEqual(r.area(), 50)
 
+    def test_str(self):
+        """It should return [Rectangle] (12) 2/1 - 4/6"""
+
+        r = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/6")
+
+
 if __name__ == "__main__":
     unittest.main()
