@@ -171,6 +171,61 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 2)
         self.assertEqual(r.y, 6)
 
+    def test_update_kw_id(self):
+        """It should update the id using keyword arg."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(id=20)
+        self.assertEqual(r.id, 20)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_kw_width(self):
+        """It should update the width using keyword arg."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(id=10, width=8)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 8)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_kw_height(self):
+        """It should update the height using keyword arg."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(id=10, width=4, height=8)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 8)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_kw_x(self):
+        """It should update the x using keyword arg."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(id=10, width=4, height=6, x=7)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 7)
+        self.assertEqual(r.y, 1)
+
+    def test_update_kw_y(self):
+        """It should update the y using keyword arg."""
+
+        r = Rectangle(4, 6, 2, 1, 10)
+        r.update(id=10, width=4, height=6, x=2, y=6)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 4)
+        self.assertEqual(r.height, 6)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 6)
+
 
 if __name__ == "__main__":
     unittest.main()
