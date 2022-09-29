@@ -112,10 +112,13 @@ class Rectangle(Base):
 
     def display(self):
         """prints the `Rectangle` to stdout."""
-
+        for i in range(self.y):
+            print()
         for i in range(self.height):
             if i > 0:
                 print("")
+            for m in range(self.x):
+                print(end=" ")
             for j in range(self.width):
                 print("#", end="")
         print()
