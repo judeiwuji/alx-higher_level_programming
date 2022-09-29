@@ -44,5 +44,65 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle(5)
 
+    def test_zero_width(self):
+        """It should fail when width == 0"""
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 5)
+
+    def test_zero_height(self):
+        """It should fail when height == 0"""
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 0)
+
+    def test_negative_width(self):
+        """It should fail when width is negative"""
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(-10, 5)
+
+    def test_negative_height(self):
+        """It should fail when height is negative"""
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, -5)
+
+    def test_negative_x(self):
+        """It should fail when x is negative"""
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 5, -2)
+
+    def test_negative_y(self):
+        """It should fail when y is negative"""
+
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 5, 2, -1)
+
+    def test_not_int_width(self):
+        """It should fail when width is not int"""
+
+        with self.assertRaises(TypeError):
+            r = Rectangle("test", 5)
+
+    def test_not_int_height(self):
+        """It should fail when height is not int"""
+
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, "test")
+
+    def test_not_int_x(self):
+        """It should fail when x is not int"""
+
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 5, "test")
+
+    def test_not_int_y(self):
+        """It should fail when y is not int"""
+
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 5, 2, "test")
+
 if __name__ == "__main__":
     unittest.main()
