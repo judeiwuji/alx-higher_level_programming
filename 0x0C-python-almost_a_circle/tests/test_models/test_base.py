@@ -10,6 +10,12 @@ from models.base import Base
 class TestBase(unittest.TestCase):
     """`Base` test cases."""
 
+    def test_base(self):
+        """It should create a `Base` object"""
+
+        b = Base(1)
+        self.assertIsInstance(b, Base)
+
     def test_ids(self):
         """It should create `Base` objects with incremental ids 1, 2, 3"""
         b = Base()
