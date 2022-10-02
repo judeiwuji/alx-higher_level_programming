@@ -4,6 +4,8 @@
 
 
 import unittest
+import contextlib
+from io import StringIO
 from models.rectangle import Rectangle
 
 
@@ -115,6 +117,15 @@ class TestRectangle(unittest.TestCase):
 
         r = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r), "[Rectangle] (12) 2/1 - 4/6")
+
+    def test_display(self):
+        """It should print the `Rectangle` to stdout."""
+
+        r = Rectangle(4, 2)
+        f = StringIO()
+        with contextlib.redirect_stdout(f):
+            r.display()
+        self.assertEqual(f.getvalue(), "####\n####\n")
 
     def test_update_id(self):
         """It should update the id."""
@@ -247,6 +258,12 @@ class TestRectangle(unittest.TestCase):
         test_data = '[{"height": 7, "id": 1, "width": 10, "x": 2, "y": 8}, ' + \
                     '{"height": 10, "id": 2, "width": 20, "x": 5, "y": 8}]'
         self.assertEqual(json_dictionary, test_data)
+
+    def test_to_json_none_string(self):
+        """It should return the JSON string representation of empty list"""
+
+        json_dictionary = Rectangle.to_json_string(None)
+        self.assertEqual(json_dictionary, '[]')
 
     def test_save_to_file(self):
         """It should write the JSON string representation of list_objs to a file"""

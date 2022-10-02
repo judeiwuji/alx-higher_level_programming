@@ -3,6 +3,8 @@
 """This module contains `TestSquare` class."""
 
 
+import contextlib
+from io import StringIO
 import unittest
 from models.square import Square
 
@@ -91,6 +93,15 @@ class TestSquare(unittest.TestCase):
 
         s = Square(10, 2, 1, 1)
         self.assertEqual(str(s), "[Square] (1) 2/1 - 10")
+
+    def test_display(self):
+        """It should print the `Square` to stdout."""
+
+        s = Square(4)
+        f = StringIO()
+        with contextlib.redirect_stdout(f):
+            s.display()
+        self.assertEqual(f.getvalue(), "####\n####\n####\n####\n")
 
     def test_update_id(self):
         """It should update the id."""
@@ -194,6 +205,12 @@ class TestSquare(unittest.TestCase):
         test_data = '[{"id": 1, "size": 10, "x": 2, "y": 8}, ' + \
                     '{"id": 2, "size": 20, "x": 5, "y": 8}]'
         self.assertEqual(json_dictionary, test_data)
+
+    def test_to_json_none_string(self):
+        """It should return the JSON string representation of empty list"""
+
+        json_dictionary = Square.to_json_string(None)
+        self.assertEqual(json_dictionary, '[]')
 
     def test_save_to_file(self):
         """It should write the JSON string representation of list_objs to a file"""
