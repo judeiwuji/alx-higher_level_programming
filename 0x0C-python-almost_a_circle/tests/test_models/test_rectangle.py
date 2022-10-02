@@ -236,6 +236,44 @@ class TestRectangle(unittest.TestCase):
         for key in sorted(r_dict):
             self.assertEqual(r_dict[key], test_data[key])
 
+    def test_to_json_string(self):
+        """It should return the JSON string representation of list_dictionaries"""
+
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(20, 10, 5, 8, 2)
+        dictionary1 = r1.to_dictionary()
+        dictionary2 = r2.to_dictionary()
+        json_dictionary = Rectangle.to_json_string([dictionary1, dictionary2])
+        test_data = '[{"height": 7, "id": 1, "width": 10, "x": 2, "y": 8}, ' + \
+                    '{"height": 10, "id": 2, "width": 20, "x": 5, "y": 8}]'
+        self.assertEquals(json_dictionary, test_data)
+
+    def test_save_to_file(self):
+        """It should write the JSON string representation of list_objs to a file"""
+
+        r = Rectangle(10, 7, 2, 8, 1)
+        Rectangle.save_to_file([r])
+        rect_list = Rectangle.load_from_file()
+        self.assertIsInstance(rect_list[0], Rectangle)
+
+    def test_from_json_string(self):
+        """It should return the list of the JSON string representation json_string"""
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Rectangle.to_json_string([dictionary])
+        list_dict = Rectangle.from_json_string(json_dictionary)
+        self.assertIsInstance(list_dict, list)
+
+    def test_create(self):
+        """It should return an instance with all attributes already set"""
+
+        r = Rectangle.create(width=10, height=5, x=2, y=1, id=100)
+        self.assertIsInstance(r, Rectangle)
+        self.assertEqual(r.id, 100)
+        self.assertEqual(r.width, 10)
+        self.assertEqual(r.height, 5)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
 
 
 if __name__ == "__main__":

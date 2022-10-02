@@ -183,6 +183,44 @@ class TestSquare(unittest.TestCase):
         for key in sorted(s_dict):
             self.assertEqual(s_dict[key], test_data[key])
 
+    def test_to_json_string(self):
+        """It should return the JSON string representation of list_dictionaries"""
+
+        s1 = Square(10, 2, 8, 1)
+        s2 = Square(20, 5, 8, 2)
+        dictionary1 = s1.to_dictionary()
+        dictionary2 = s2.to_dictionary()
+        json_dictionary = Square.to_json_string([dictionary1, dictionary2])
+        test_data = '[{"id": 1, "size": 10, "x": 2, "y": 8}, ' + \
+                    '{"id": 2, "size": 20, "x": 5, "y": 8}]'
+        self.assertEquals(json_dictionary, test_data)
+
+    def test_save_to_file(self):
+        """It should write the JSON string representation of list_objs to a file"""
+
+        s = Square(10, 7, 2, 1)
+        Square.save_to_file([s])
+        square_list = Square.load_from_file()
+        self.assertIsInstance(square_list[0], Square)
+
+    def test_from_json_string(self):
+        """It should return the list of the JSON string representation json_string"""
+        s = Square(10)
+        dictionary = s.to_dictionary()
+        json_dictionary = Square.to_json_string([dictionary])
+        list_dict = Square.from_json_string(json_dictionary)
+        self.assertIsInstance(list_dict, list)
+
+    def test_create(self):
+        """It should return an instance with all attributes already set"""
+
+        s = Square.create(size=10, x=2, y=1, id=100)
+        self.assertIsInstance(s, Square)
+        self.assertEqual(s.id, 100)
+        self.assertEqual(s.size, 10)
+        self.assertEqual(s.x, 2)
+        self.assertEqual(s.y, 1)
+
 
 if __name__ == "__main__":
     unittest.main()

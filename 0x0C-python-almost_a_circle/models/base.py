@@ -194,7 +194,7 @@ class Base:
 
             turtle.end_fill()
             turtle.penup()
-        
+
         for square in list_squares:
             index = random.randint(0, len(list_squares))
             turtle.home()
@@ -203,7 +203,7 @@ class Base:
             turtle.pendown()
             turtle.fillcolor(fill_colors[index])
             turtle.begin_fill()
-            
+
             turtle.forward(square.size)
             turtle.right(90)
             turtle.forward(square.size)
