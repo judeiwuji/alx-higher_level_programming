@@ -6,6 +6,7 @@
 import json
 import csv
 import turtle
+import random
 
 
 class Base:
@@ -163,7 +164,7 @@ class Base:
         Args:
             list_squares(list): List of objects
         """
-
+        fill_colors = ['red', 'blue', 'violet', 'tomato', 'skyblue']
         wn = turtle.Screen()
         wn.canvwidth = 400
         wn.canvheight = 400
@@ -171,3 +172,47 @@ class Base:
         wn.window_width = 400
         wn.title("Almost a Circle")
         turtle.Turtle()
+        turtle.home()
+
+        for rect in list_rectangles:
+            index = random.randint(0, len(list_rectangles))
+            turtle.home()
+            turtle.setx(rect.x)
+            turtle.sety(rect.y)
+            turtle.pendown()
+            turtle.fillcolor(fill_colors[index])
+            turtle.begin_fill()
+
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+
+            turtle.right(90)
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+
+            turtle.end_fill()
+            turtle.penup()
+        
+        for square in list_squares:
+            index = random.randint(0, len(list_squares))
+            turtle.home()
+            turtle.setx(square.x)
+            turtle.sety(square.y)
+            turtle.pendown()
+            turtle.fillcolor(fill_colors[index])
+            turtle.begin_fill()
+            
+            turtle.forward(square.size)
+            turtle.right(90)
+            turtle.forward(square.size)
+
+            turtle.right(90)
+            turtle.forward(square.size)
+            turtle.right(90)
+            turtle.forward(square.size)
+
+            turtle.end_fill()
+            turtle.penup()
+        turtle.done()
