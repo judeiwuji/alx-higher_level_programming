@@ -5,6 +5,7 @@
 
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -30,6 +31,14 @@ class TestBase(unittest.TestCase):
         b = Base(10)
         self.assertEqual(b.id, 10)
 
+    def test_to_json_string(self):
+        """It should return the JSON string representation of list_dictionaries"""
+
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        test_data = '[{"height": 7, "id": 1, "width": 10, "x": 2, "y": 8}]'
+        self.assertEquals(json_dictionary, test_data)
 
 if __name__ == "__main__":
     unittest.main()

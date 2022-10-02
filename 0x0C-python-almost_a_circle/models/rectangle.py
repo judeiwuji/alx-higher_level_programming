@@ -142,9 +142,20 @@ class Rectangle(Base):
 
             for i, arg in enumerate(args):
                 if i > len(attributes):
-                    break;
+                    break
                 setattr(self, attributes[i], arg)
 
         if (args is None or len(args) == 0) and kwargs is not None:
             for key in kwargs:
                 setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle."""
+
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            "y": self.y
+        }
