@@ -38,7 +38,7 @@ class TestBase(unittest.TestCase):
         dictionary = r1.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         test_data = '[{"height": 7, "id": 1, "width": 10, "x": 2, "y": 8}]'
-        self.assertEquals(json_dictionary, test_data)
+        self.assertEqual(json_dictionary, test_data)
 
 if __name__ == "__main__":
     unittest.main()

@@ -246,7 +246,7 @@ class TestRectangle(unittest.TestCase):
         json_dictionary = Rectangle.to_json_string([dictionary1, dictionary2])
         test_data = '[{"height": 7, "id": 1, "width": 10, "x": 2, "y": 8}, ' + \
                     '{"height": 10, "id": 2, "width": 20, "x": 5, "y": 8}]'
-        self.assertEquals(json_dictionary, test_data)
+        self.assertEqual(json_dictionary, test_data)
 
     def test_save_to_file(self):
         """It should write the JSON string representation of list_objs to a file"""

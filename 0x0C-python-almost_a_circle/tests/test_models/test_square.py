@@ -193,7 +193,7 @@ class TestSquare(unittest.TestCase):
         json_dictionary = Square.to_json_string([dictionary1, dictionary2])
         test_data = '[{"id": 1, "size": 10, "x": 2, "y": 8}, ' + \
                     '{"id": 2, "size": 20, "x": 5, "y": 8}]'
-        self.assertEquals(json_dictionary, test_data)
+        self.assertEqual(json_dictionary, test_data)
 
     def test_save_to_file(self):
         """It should write the JSON string representation of list_objs to a file"""

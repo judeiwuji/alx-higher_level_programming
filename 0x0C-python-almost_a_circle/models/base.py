@@ -49,12 +49,14 @@ class Base:
         Args:
             list_objs(list): list of instances who inherits of Base
         """
+
         data = "[]"
         filename = cls.__name__ + ".json"
         if list_objs is not None and type(list_objs) is list:
             list_dict = []
             for obj in list_objs:
-                list_dict.append(obj.to_dictionary())
+                if isinstance(obj, Base):
+                    list_dict.append(obj.to_dictionary())
             data = cls.to_json_string(list_dict)
         with open(filename, encoding="utf-8", mode="w") as fp:
             fp.write(data)
@@ -80,11 +82,7 @@ class Base:
             dictionary(**): Keyword args
         """
 
-        dummy = None
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)
-        if cls.__name__ == "Square":
-            dummy = cls(1)
+        dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
