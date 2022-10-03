@@ -94,10 +94,9 @@ class Base:
         try:
             filename = cls.__name__ + ".json"
             with open(filename, encoding="utf-8") as fp:
-                data = json.load(fp)
-                if type(data) is list:
-                    for item in data:
-                        objs.append(cls.create(**item))
+                data = cls.from_json_string(fp.read())
+                for item in data:
+                    objs.append(cls.create(**item))
         except FileNotFoundError:
             pass
         return objs
