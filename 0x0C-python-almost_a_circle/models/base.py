@@ -132,24 +132,19 @@ class Base:
         """deserializes in CSV."""
 
         objs = []
+        fields = []
+        if cls.__name__ == "Square":
+            fields = ['id','size','x','y']
+        if cls.__name__ == "Rectangle":
+            fields = ['id','width','height','x','y']
         try:
             filename = cls.__name__ + ".csv"
             with open(filename, encoding="utf-8") as fp:
                 reader = csv.reader(fp)
                 for row in reader:
-                    obj_dict = {'id': row[0]}
-                    i = 0
-                    if cls.__name__ == "Rectangle":
-                        obj_dict['width'] = int(row[1])
-                        obj_dict['height'] = int(row[2])
-                        i += 3
-
-                    if cls.__name__ == "Square":
-                        obj_dict['size'] = int(row[1])
-                        i += 2
-                    obj_dict['x'] = int(row[i])
-                    obj_dict['y'] = int(row[i + 1])
-
+                    obj_dict = {}
+                    for i, field in enumerate(fields):
+                        obj_dict[field] = int(row[i])
                     objs.append(cls.create(**obj_dict))
         except FileNotFoundError:
             pass
