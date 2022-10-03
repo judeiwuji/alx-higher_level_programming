@@ -134,9 +134,9 @@ class Base:
         objs = []
         fields = []
         if cls.__name__ == "Square":
-            fields = ['id','size','x','y']
+            fields = ['id', 'size', 'x', 'y']
         if cls.__name__ == "Rectangle":
-            fields = ['id','width','height','x','y']
+            fields = ['id', 'width', 'height', 'x', 'y']
         try:
             filename = cls.__name__ + ".csv"
             with open(filename, encoding="utf-8") as fp:
