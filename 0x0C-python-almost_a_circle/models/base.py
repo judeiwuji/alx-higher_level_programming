@@ -171,9 +171,11 @@ class Base:
         wn.title("Almost a Circle")
         turtle.Turtle()
         turtle.home()
+        turtle.penup()
 
         for rect in list_rectangles:
-            index = random.randint(0, len(list_rectangles))
+            index = random.randint(0, len(fill_colors) - 1)
+            turtle.penup()
             turtle.home()
             turtle.setx(rect.x)
             turtle.sety(rect.y)
@@ -191,10 +193,10 @@ class Base:
             turtle.forward(rect.height)
 
             turtle.end_fill()
-            turtle.penup()
 
         for square in list_squares:
-            index = random.randint(0, len(list_squares))
+            index = random.randint(0, len(fill_colors) - 1)
+            turtle.penup()
             turtle.home()
             turtle.setx(square.x)
             turtle.sety(square.y)
@@ -212,5 +214,5 @@ class Base:
             turtle.forward(square.size)
 
             turtle.end_fill()
-            turtle.penup()
+        turtle.hideturtle()
         turtle.done()
