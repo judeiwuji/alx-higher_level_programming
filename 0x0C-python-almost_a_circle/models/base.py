@@ -81,11 +81,11 @@ class Base:
         Args:
             dictionary(**): Keyword args
         """
-
+        if len(dictionary) == 0:
+            return
         dummy = cls(1, 1)
         update_data = {}
         attributes = ['id', 'width', 'height', 'size', 'x', 'y']
-
         for key in dictionary:
             if key in attributes:
                 update_data[key] = dictionary[key]
