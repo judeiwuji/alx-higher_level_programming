@@ -2,6 +2,6 @@
 -- and August ordered by temperature (descending)
 SELECT `city`, AVG(`value`) as `avg_temp`
 FROM `temperatures`
-WHERE `month`=7 or `month`=8
+WHERE `month` BETWEEN 7 AND 8
 ORDER BY AVG(`value`) DESC
 LIMIT 3;
