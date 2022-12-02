@@ -19,8 +19,8 @@ def main():
     db = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD,
                          db=DB_NAME, port=DB_PORT)
     cur = db.cursor()
-    sql = "SELECT id, name FROM states WHERE name=%s ORDER BY id ASC"
-    cur.execute(sql, (SEARCH, ))
+    sql = "SELECT id, name FROM states WHERE name='{}' ORDER BY id ASC".format(SEARCH)
+    cur.execute(sql)
     rows = cur.fetchall()
     for row in rows:
         print(row)
