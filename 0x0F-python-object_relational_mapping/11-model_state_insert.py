@@ -21,6 +21,7 @@ def main():
     state = State(name=name)
     session.add(state)
     new_state = session.query(State).filter(State.name == name).first()
+    session.commit()
     print("{:d}".format(new_state.id))
 
 
