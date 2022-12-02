@@ -28,7 +28,7 @@ def main():
     for i, state in enumerate(states):
         print("{:d}: {}".format(i+1, state.name))
         for city in state.cities:
-            print("    {:d}: {}".format(j, city.name))
+            print("\t{:d}: {}".format(j, city.name))
             j += 1
 
 
