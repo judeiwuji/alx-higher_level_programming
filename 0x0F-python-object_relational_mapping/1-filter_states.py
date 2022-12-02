@@ -8,9 +8,6 @@ import sys
 
 def main():
     """Entry point"""
-    if len(sys.argv) != 4:
-        print("Usage: <username> <password> <database>")
-        return
 
     DB_HOST = 'localhost'
     DB_USER = sys.argv[1]
