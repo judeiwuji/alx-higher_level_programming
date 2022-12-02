@@ -2,9 +2,8 @@
 """City Driver module"""
 from sys import argv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.orm import sessionmaker
 from model_state import Base
-from model_city import City
 from relationship_state import State
 from relationship_city import City
 
@@ -18,7 +17,6 @@ def main():
 
     engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
                            format(DB_PASS, DB_USER, DB_NAME))
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     states = session.query(State).join(City).order_by(State.id)\
