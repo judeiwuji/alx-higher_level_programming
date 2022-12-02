@@ -13,13 +13,14 @@ def main():
     DB_USER = sys.argv[1]
     DB_PASSWD = sys.argv[2]
     DB_NAME = sys.argv[3]
+    SEARCH = sys.argv[4]
     DB_PORT = 3306
 
     db = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD,
                          db=DB_NAME, port=DB_PORT)
     cur = db.cursor()
-    sql = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
-    cur.execute(sql)
+    sql = "SELECT id, name FROM states WHERE name=%s ORDER BY id ASC"
+    cur.execute(sql, (SEARCH, ))
     rows = cur.fetchall()
     for row in rows:
         print(row)
