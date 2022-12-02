@@ -19,7 +19,7 @@ def main():
     db = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD,
                          db=DB_NAME, port=DB_PORT)
     cur = db.cursor()
-    sql = "SELECT id, name FROM states WHERE name='{}' \
+    sql = "SELECT id, name FROM states WHERE name LIKE '%%{}%%' \
            ORDER BY id ASC".format(SEARCH)
     cur.execute(sql)
     rows = cur.fetchall()
