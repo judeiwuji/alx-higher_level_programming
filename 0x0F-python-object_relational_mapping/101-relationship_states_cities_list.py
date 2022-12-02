@@ -19,8 +19,7 @@ def main():
                            format(DB_PASS, DB_USER, DB_NAME))
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).join(City).order_by(State.id)\
-                                 .order_by(City.id)
+    states = session.query(State).order_by(State.id)
 
     for state in states:
         print("{:d}: {}".format(state.id, state.name))
