@@ -16,17 +16,19 @@ def main():
     SEARCH = sys.argv[4]
     DB_PORT = 3306
 
-    db = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD,
-                         db=DB_NAME, port=DB_PORT)
-    cur = db.cursor()
-    sql = "SELECT id, name FROM states WHERE name LIKE '%%{}%%' \
-           ORDER BY id ASC".format(SEARCH)
-    cur.execute(sql)
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    cur.close()
-    db.close()
+    try:
+        db = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD,
+                             db=DB_NAME, port=DB_PORT)
+        cur = db.cursor()
+        sql = "SELECT id, name FROM states WHERE name LIKE '%%{}%%' \
+            ORDER BY id ASC".format(SEARCH)
+        cur.execute(sql)
+        for row in cur.fetchall():
+            print(row)
+        cur.close()
+        db.close()
+    except Exception:
+        pass
 
 
 if __name__ == '__main__':
