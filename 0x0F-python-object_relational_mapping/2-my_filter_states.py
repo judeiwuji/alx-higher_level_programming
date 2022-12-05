@@ -20,7 +20,7 @@ def main():
         db = MySQLdb.connect(host=DB_HOST, user=DB_USER, passwd=DB_PASSWD,
                              db=DB_NAME, port=DB_PORT)
         cur = db.cursor()
-        sql = "SELECT id, name FROM states WHERE name LIKE '%%{}%%' \
+        sql = "SELECT id, name FROM states WHERE name= BINARY '{}' \
             ORDER BY id ASC".format(SEARCH)
         cur.execute(sql)
         for row in cur.fetchall():
