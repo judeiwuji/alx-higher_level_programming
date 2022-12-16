@@ -13,6 +13,7 @@ Requirements:
 """
 import requests
 from sys import argv
+import json
 
 
 def main():
@@ -20,7 +21,7 @@ def main():
     url = argv[1]
     email = argv[2]
     data = {'email': email}
-    res = requests.post(url, json=data)
+    res = requests.post(url, json=json.dump(data))
 
     print(res.text)
 
