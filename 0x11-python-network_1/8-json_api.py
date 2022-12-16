@@ -29,13 +29,13 @@ def main():
     res = requests.get(url)
 
     try:
-
+        print(res.text)
         if res.text:
             data = res.json()
             print("[{}] {}".format(data['id'], data['name']))
         else:
             print("No result")
-    except ValueError as error:
+    except requests.JSONDecodeError as error:
         print("Not a valid JSON")
 
 
