@@ -26,16 +26,15 @@ def main():
     if len(argv) > 1:
         query = argv[1]
     url = url + "?q={}".format(query)
-    res = requests.get(url)
+    res = requests.post(url)
 
     try:
-        print(res.text)
         if res.text:
             data = res.json()
             print("[{}] {}".format(data['id'], data['name']))
         else:
             print("No result")
-    except requests.JSONDecodeError as error:
+    except requests.exceptions.JSONDecodeError as error:
         print("Not a valid JSON")
 
 
