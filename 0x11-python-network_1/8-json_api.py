@@ -31,10 +31,11 @@ def main():
     try:
         if res.text:
             data = res.json()
+            print(data)
             print("[{}] {}".format(data['id'], data['name']))
         else:
             print("No result")
-    except requests.exceptions.JSONDecodeError as error:
+    except ValueError as error:
         print("Not a valid JSON")
 
 
