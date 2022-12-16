@@ -25,8 +25,7 @@ def main():
     query = ""
     if len(argv) > 1:
         query = argv[1]
-    url = url + "?q={}".format(query)
-    res = requests.post(url)
+    res = requests.post(url, data={'q': query})
 
     try:
         data = res.json()
