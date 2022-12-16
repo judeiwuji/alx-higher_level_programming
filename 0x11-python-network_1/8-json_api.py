@@ -29,9 +29,8 @@ def main():
     res = requests.post(url)
 
     try:
-        if res.text:
-            data = res.json()
-            print(data)
+        data = res.json()
+        if len(data):
             print("[{}] {}".format(data['id'], data['name']))
         else:
             print("No result")
