@@ -21,7 +21,7 @@ def main():
     url = argv[1]
     email = argv[2]
     data = {'email': email}
-    res = requests.post(url, json=json.dumps(data))
+    res = requests.post(url, data=data)
 
     print(res.text)
 
