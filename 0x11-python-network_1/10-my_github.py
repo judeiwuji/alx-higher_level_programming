@@ -33,6 +33,8 @@ def main():
             print(id)
         except ValueError:
             pass
+    else:
+        print(None)
 
 
 if __name__ == "__main__":
