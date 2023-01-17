@@ -10,7 +10,7 @@ request(url, function (error, response, body) {
     return;
   }
 
-  fs.writeFile(filepath, '\ufeff' + body, function (error) {
+  fs.writeFile(filepath, body, function (error) {
     if (error) {
       console.log(error);
     }
