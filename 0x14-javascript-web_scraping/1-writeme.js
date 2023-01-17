@@ -6,6 +6,5 @@ const content = process.argv[3];
 fs.writeFile(filename, '\ufeff' + content, function (err) {
   if (err) {
     console.log(err);
-    return;
   }
 });
