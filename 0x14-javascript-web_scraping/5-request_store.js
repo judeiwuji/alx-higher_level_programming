@@ -13,7 +13,6 @@ request(url, function (error, response, body) {
   fs.writeFile(filepath, '\ufeff' + body, function (error) {
     if (error) {
       console.log(error);
-      return;
     }
   });
 });

@@ -8,15 +8,14 @@ request(url, function (error, response, body) {
     return;
   }
   const data = JSON.parse(body);
-  const count_dict = {};
-
+  const countDict = {};
   for (const item of data) {
     if (item.completed) {
-      if (!count_dict[item.userId]) {
-        count_dict[item.userId] = 0;
+      if (!countDict[item.userId]) {
+        countDict[item.userId] = 0;
       }
-      ++count_dict[item.userId];
+      ++countDict[item.userId];
     }
   }
-  console.log(count_dict);
+  console.log(countDict);
 });
