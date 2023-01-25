@@ -1,5 +1,5 @@
 const $ = window.$;
-$(document).ready(function () {
+$(function () {
   $('DIV#toggle_header').on('click', function () {
     const header = $('header');
     if (header.hasClass('red')) {
