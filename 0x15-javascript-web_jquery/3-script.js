@@ -1,3 +1,6 @@
-window.$('DIV#red_header').on('click', function (e) {
-  window.$('header').addClass('red');
+const $ = window.$;
+$(document).ready(function () {
+  $('DIV#red_header').on('click', function (e) {
+    $('header').addClass('red');
+  });
 });
